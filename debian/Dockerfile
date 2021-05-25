@@ -1,14 +1,16 @@
 # based on https://github.com/wernight/docker-ngrok/blob/master/Dockerfile
 FROM debian:buster-slim
 
-RUN apt-get update && apt-get install curl -y
-RUN curl -Lo ngrok.deb https://bin.equinox.io/a/ebw3zE8uejc/ngrok-2.3.40-linux-$(dpkg --print-architecture).deb
-RUN dpkg -i ngrok.deb
+RUN set -x \
+    # Install ngrok (latest official stable from https://ngrok.com/download).
+ && apt-get update && apt-get install curl unzip -y \
+ && curl -Lo /ngrok.zip https://bin.equinox.io/a/23C61AUP19h/ngrok-2.3.40-linux-amd64.zip \
+ && unzip -o /ngrok.zip -d /bin \
+ && rm -f /ngrok.zip \
+    # Create non-root user.
+ && useradd ngrok
 
-RUN useradd ngrok
 COPY --chown=ngrok ngrok.yml /home/ngrok/.ngrok2/
-COPY entrypoint.sh /
-RUN chmod +x /entrypoint.sh
 
 USER ngrok
 ENV USER=ngrok
@@ -18,4 +20,4 @@ RUN ngrok --version
 
 EXPOSE 4040
 
-CMD ["/entrypoint.sh", "/usr/local/bin/ngrok"]
+CMD ["/bin/ngrok"]
