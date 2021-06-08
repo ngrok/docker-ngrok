@@ -1,17 +1,17 @@
 FROM alpine:3.12
-# based on https://github.com/wernight/docker-ngrok/blob/master/Dockerfile
 
 RUN set -x \
-    # Install ngrok (latest official stable from https://ngrok.com/download).
  && apk add --no-cache curl \
  && curl -Lo /ngrok.zip https://bin.equinox.io/a/23C61AUP19h/ngrok-2.3.40-linux-amd64.zip \
  && unzip -o /ngrok.zip -d /bin \
  && rm -f /ngrok.zip \
-    # Create non-root user.
- && adduser -h /home/ngrok -D -u 6737 ngrok
+ && adduser -h /home/ngrok -D -u 6737 ngrok \
+ && mkdir /var/lib/ngrok \
+ && chown ngrok /var/lib/ngrok
 
 # Add config script.
-COPY --chown=ngrok ngrok.yml /home/ngrok/.ngrok2/
+COPY --chown=ngrok ngrok.yml /var/lib/ngrok
+COPY entrypoint.sh /
 
 USER ngrok
 ENV USER=ngrok
@@ -21,4 +21,4 @@ RUN ngrok --version
 
 EXPOSE 4040
 
-CMD ["/bin/ngrok"]
+ENTRYPOINT ["/entrypoint.sh"]
