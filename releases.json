@@ -1,0 +1,11 @@
+{
+  "amd64": {
+    "url": "https://bin.equinox.io/a/b5PAmc6L9z2/ngrok-2.3.40-linux-amd64",
+    "sha256": "218d267cd1195334718bafac14bfdf1c19dc95dcf8a24aaa6a1383c21dc86e76"
+  },
+  "arm": {
+    "url": "https://bin.equinox.io/a/2gpRjDRBpJv/ngrok-2.3.40-linux-arm64",
+    "sha256": "dc7b4465ef95f6d04d1b1996111b3a2631e5f464d7dca7f4994f59ea4edbe21f"
+  },
+  "version": "2.3.40"
+}
