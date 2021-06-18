@@ -1,4 +1,4 @@
-{ pkgs, arch, entrypoint, ngrokBin, shadowSetup, extraCommands }:
+{ pkgs, arch, entrypoint, ngrokBin, shadowSetup, extraCommands, version }:
 
 with pkgs;
 let
@@ -15,8 +15,8 @@ let
   };
 in dockerTools.buildLayeredImage {
   inherit extraCommands;
-  name = "ngrok";
-  tag = "alpine-2.3.40-${arch}";
+  name = "ngrok/ngrok";
+  tag = "${version}-alpine-${arch}";
   fromImage = alpine;
   contents = [ ngrokBin entrypoint ] ++ shadowSetup;
   config = {

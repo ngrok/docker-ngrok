@@ -3,7 +3,8 @@ with stdenv;
 let
   configDir = "/var/lib/ngrok";
   releases = builtins.fromJSON (builtins.readFile ./releases.json);
-  ngrokDrv = { version, sha256, url }:
+  version = releases.version;
+  ngrokDrv = { sha256, url }:
     stdenv.mkDerivation {
       name = "ngrok-${version}";
       version = version;
@@ -46,22 +47,22 @@ in {
     ngrokBin = ngrokBinArm;
     arch = "arm64";
     pkgs = pkgsCross.aarch64-multiplatform;
-    inherit extraCommands entrypoint shadowSetup;
+    inherit extraCommands entrypoint shadowSetup version;
   };
   alpineArm = import ./alpine.nix {
     ngrokBin = ngrokBinArm;
     arch = "arm64";
     pkgs = pkgsCross.aarch64-multiplatform;
-    inherit extraCommands entrypoint shadowSetup;
+    inherit extraCommands entrypoint shadowSetup version;
   };
   debian = import ./debian.nix {
     ngrokBin = ngrokBinAmd;
     arch = "amd64";
-    inherit pkgs extraCommands entrypoint shadowSetup;
+    inherit pkgs extraCommands entrypoint shadowSetup version;
   };
   alpine = import ./alpine.nix {
     ngrokBin = ngrokBinAmd;
     arch = "amd64";
-    inherit pkgs extraCommands entrypoint shadowSetup;
+    inherit pkgs extraCommands entrypoint shadowSetup version;
   };
 }
