@@ -17,7 +17,9 @@ let
       '';
     };
   ngrokBinArm = ngrokDrv releases.arm;
-  ngrokBinAmd = ngrokDrv releases.amd64;
+  ngrokBinAmd64 = ngrokDrv releases.amd64;
+  ngrokBinArm64 = ngrokDrv releases.arm64;
+  ngrokBini386 = ngrokDrv releases.i386;
   shadowSetup = with pkgs; [
     (writeTextDir "etc/shadow" ''
       root:!x:::::::
@@ -43,26 +45,50 @@ let
     echo "web_addr: 0.0.0.0:4040" > .${configDir}/ngrok.yml
   '';
 in {
-  debianArm = import ./debian.nix {
-    ngrokBin = ngrokBinArm;
+  debianArm64 = import ./debian.nix {
+    ngrokBin = ngrokBinArm64;
     arch = "arm64";
     pkgs = pkgsCross.aarch64-multiplatform;
+    inherit extraCommands entrypoint shadowSetup version;
+  };
+  alpineArm64 = import ./alpine.nix {
+    ngrokBin = ngrokBinArm64;
+    arch = "arm64";
+    pkgs = pkgsCross.aarch64-multiplatform;
+    inherit extraCommands entrypoint shadowSetup version;
+  };
+  debianAmd64 = import ./debian.nix {
+    ngrokBin = ngrokBinAmd64;
+    arch = "amd64";
+    inherit pkgs extraCommands entrypoint shadowSetup version;
+  };
+  alpineAmd64 = import ./alpine.nix {
+    ngrokBin = ngrokBinAmd64;
+    arch = "amd64";
+    inherit pkgs extraCommands entrypoint shadowSetup version;
+  };
+  debianArm = import ./debian.nix {
+    ngrokBin = ngrokBinArm;
+    arch = "arm";
+    pkgs = pkgsCross.armv7l-hf-multiplatform;
     inherit extraCommands entrypoint shadowSetup version;
   };
   alpineArm = import ./alpine.nix {
     ngrokBin = ngrokBinArm;
-    arch = "arm64";
-    pkgs = pkgsCross.aarch64-multiplatform;
+    arch = "arm";
+    pkgs = pkgsCross.armv7l-hf-multiplatform;
     inherit extraCommands entrypoint shadowSetup version;
   };
-  debian = import ./debian.nix {
-    ngrokBin = ngrokBinAmd;
-    arch = "amd64";
-    inherit pkgs extraCommands entrypoint shadowSetup version;
+  debian386 = import ./debian.nix {
+    ngrokBin = ngrokBini386;
+    arch = "i386";
+    pkgs = pkgsCross.gnu32;
+    inherit extraCommands entrypoint shadowSetup version;
   };
-  alpine = import ./alpine.nix {
-    ngrokBin = ngrokBinAmd;
-    arch = "amd64";
-    inherit pkgs extraCommands entrypoint shadowSetup version;
+  alpine386 = import ./alpine.nix {
+    ngrokBin = ngrokBini386;
+    arch = "i386";
+    pkgs = pkgsCross.gnu32;
+    inherit extraCommands entrypoint shadowSetup version;
   };
 }
