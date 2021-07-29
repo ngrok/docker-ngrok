@@ -17,4 +17,8 @@ else
     ARGS="--config=$CONFIGDIR/ngrok.yml $ARGS"
 fi
 
+if [ $# -eq 0 ]; then
+    ARGS="start $ARGS --all"
+fi
+
 exec ngrok "$@" $ARGS
