@@ -19,7 +19,7 @@ docker run --net=host -it ngrok/ngrok http 80
 Access the web inspector on the host machine at localhost:3000
 
 ```bash
-docker run -it --p 3000:4040 ngrok/ngrok http 80
+docker run -it -p 3000:4040 ngrok/ngrok http 80
 ```
 
 Run the ngrok agent with auth token 'xyz'
