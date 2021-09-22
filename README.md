@@ -25,7 +25,7 @@ docker run -it -p 3000:4040 ngrok/ngrok http 80
 Run the ngrok agent with auth token 'xyz'
 
 ```bash
-docker run -it e NGROK_AUTHTOKEN=xyz ngrok/ngrok:alpine http 80
+docker run -it -e NGROK_AUTHTOKEN=xyz ngrok/ngrok:alpine http 80
 ```
 
 Run the ngrok agent with the config file './ngrok.yml' from the host machine
