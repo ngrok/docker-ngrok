@@ -10,25 +10,30 @@ The [ngrok agent docs page][ngrok-docs] has more information on how to use the n
 
 ## Usage
 
-Run an ngrok agent pointed at localhost:80
+### Run an ngrok agent pointed at localhost:80
 
+...on Linux:
 ```bash
 docker run --net=host -it ngrok/ngrok http 80
 ```
 
-Access the web inspector on the host machine at localhost:3000
+...on Windows or MacOS:
+```bash
+docker run -it ngrok/ngrok http host.docker.internal:80
+```
+### Access the web inspector on the host machine at localhost:3000
 
 ```bash
 docker run -it -p 3000:4040 ngrok/ngrok http 80
 ```
 
-Run the ngrok agent with auth token 'xyz'
+### Run the ngrok agent with auth token 'xyz'
 
 ```bash
 docker run -it -e NGROK_AUTHTOKEN=xyz ngrok/ngrok:alpine http 80
 ```
 
-Run the ngrok agent with the config file './ngrok.yml' from the host machine
+### Run the ngrok agent with the config file './ngrok.yml' from the host machine
 
 ```bash
 docker run -it -v $(pwd)/ngrok.yml:/etc/ngrok.yml -e NGROK_CONFIG=/etc/ngrok.yml ngrok/ngrok:alpine http 80
