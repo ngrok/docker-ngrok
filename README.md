@@ -1,5 +1,9 @@
 # ngrok agent docker image
 
+# Upgrading to v3
+
+We recently rolled out a new version of the agent that requires some changes. You can find an [upgrade guide in our docs](https://ngrok.com/docs/guides/upgrade-v2-v3).
+
 ## Introduction
 
 This repository contains code related to building and releasing the [ngrok docker image][ngrok-dockerhub]
@@ -13,14 +17,17 @@ The [ngrok agent docs page][ngrok-docs] has more information on how to use the n
 ### Run an ngrok agent pointed at localhost:80
 
 ...on Linux:
+
 ```bash
 docker run --net=host -it ngrok/ngrok http 80
 ```
 
 ...on Windows or MacOS:
+
 ```bash
 docker run -it ngrok/ngrok http host.docker.internal:80
 ```
+
 ### Access the web inspector on the host machine at localhost:3000
 
 ```bash
