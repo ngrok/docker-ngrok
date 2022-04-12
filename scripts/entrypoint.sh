@@ -5,6 +5,7 @@ ARGS=""
 # Set the authorization token.
 if [ -n "$NGROK_AUTHTOKEN" ]; then
     cat > $CONFIGDIR/auth-config.yml <<EOF
+    version: 1
     authtoken: $NGROK_AUTHTOKEN
 EOF
     ARGS="$ARGS --config=$CONFIGDIR/auth-config.yml"
