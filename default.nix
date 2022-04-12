@@ -10,7 +10,7 @@ let
       version = version;
       src = fetchurl { inherit sha256 url; };
       sourceRoot = ".";
-      unpackPhase = "cp $src ngrok";
+      unpackPhase = "${pkgs.unzip}/bin/unzip $src ngrok";
       buildPhase = "chmod a+x ngrok";
       installPhase = ''
         install -D ngrok $out/bin/ngrok
