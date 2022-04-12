@@ -42,7 +42,8 @@ let
   extraCommands = ''
     mkdir -p .${configDir}
     chmod a+rw -R .${configDir}
-    echo "web_addr: 0.0.0.0:4040" > .${configDir}/ngrok.yml
+    echo "version: 2" > .${configDir}/ngrok.yml
+    echo "web_addr: 0.0.0.0:4040" >> .${configDir}/ngrok.yml
   '';
 in {
   debianArm64 = import ./debian.nix {
