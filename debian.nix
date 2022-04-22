@@ -19,7 +19,7 @@ in dockerTools.buildLayeredImage {
     sha256 = imageSha256;
     inherit imageDigest;
   };
-  contents = [ ngrokBin entrypoint ] ++ shadowSetup;
+  contents = [ ngrokBin entrypoint pkgs.cacert ] ++ shadowSetup;
   config = {
     ExposedPorts = { "4040" = { }; };
     Entrypoint = [ "${entrypoint}/entrypoint.sh" ];
