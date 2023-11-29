@@ -1,25 +1,26 @@
 #!/bin/sh
 CONFIGDIR="/var/lib/ngrok"
-ARGS=""
+CONFIGARGS=""
 
-# Set the authorization token.
+# Create and set a configuration file that defines the authorization token.
 if [ -n "$NGROK_AUTHTOKEN" ]; then
     cat > $CONFIGDIR/auth-config.yml <<EOF
     version: 2
     authtoken: $NGROK_AUTHTOKEN
 EOF
-    ARGS="$ARGS --config=$CONFIGDIR/auth-config.yml"
+    CONFIGARGS="$CONFIGARGS --config=$CONFIGDIR/auth-config.yml"
 fi
 
 # Set the config file location; make sure agent uses default config even if NGROK_AUTHTOKEN is set
 if [ -n "$NGROK_CONFIG" ]; then
-    ARGS="$ARGS --config=$NGROK_CONFIG"
+    CONFIGARGS="$CONFIGARGS --config=$NGROK_CONFIG"
 else
-    ARGS="--config=$CONFIGDIR/ngrok.yml $ARGS"
+    CONFIGARGS="--config=$CONFIGDIR/ngrok.yml $CONFIGARGS"
 fi
 
+# When no custom args are used, just start every tunnel defined in the configuration files
 if [ $# -eq 0 ]; then
-    ARGS="start $ARGS --all"
+    exec ngrok $CONFIGARGS start --all
+else
+    exec ngrok $CONFIGARGS "$@"
 fi
-
-exec ngrok "$@" $ARGS
