@@ -5,8 +5,9 @@ CONFIGARGS=""
 # Create and set a configuration file that defines the authorization token.
 if [ -n "$NGROK_AUTHTOKEN" ]; then
     cat > $CONFIGDIR/auth-config.yml <<EOF
-    version: 2
-    authtoken: $NGROK_AUTHTOKEN
+    version: 3
+    agent:
+      authtoken: $NGROK_AUTHTOKEN
 EOF
     CONFIGARGS="$CONFIGARGS --config=$CONFIGDIR/auth-config.yml"
 fi
