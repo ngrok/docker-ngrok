@@ -42,8 +42,9 @@ let
   extraCommands = ''
     mkdir -p .${configDir}
     chmod a+rw -R .${configDir}
-    echo "version: 2" > .${configDir}/ngrok.yml
-    echo "web_addr: 0.0.0.0:4040" >> .${configDir}/ngrok.yml
+    echo "version: 3" > .${configDir}/ngrok.yml
+    echo "agent:" >> .${configDir}/ngrok.yml
+    echo "    web_addr: 0.0.0.0:4040" >> .${configDir}/ngrok.yml
   '';
 in
 rec {
