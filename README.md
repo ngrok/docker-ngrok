@@ -1,10 +1,12 @@
 # ngrok agent docker image
 
-# Upgrading to v3
+> 🐳 Looking for a convenient UI to get your local Docker containers on the internet using ngrok? Check out the ngrok [Docker Desktop Extension](https://github.com/ngrok/ngrok-docker-extension)!
+
+## Upgrading to v3
 
 We recently rolled out a new version of the agent that requires some changes. You can find an [upgrade guide in our docs](https://ngrok.com/docs/guides/upgrade-v2-v3).
 
-## Introduction
+### Introduction
 
 This repository contains code related to building and releasing the [ngrok docker image][ngrok-dockerhub]
 
@@ -12,9 +14,9 @@ Please visit [ngrok's website][ngrok] for more information on what ngrok is.
 
 The [ngrok agent docs page][ngrok-docs] has more information on how to use the ngrok agent.
 
-## Usage
+### Usage
 
-### Run an ngrok agent pointed at localhost:80
+#### Run an ngrok agent pointed at localhost:80
 
 ...on Linux:
 
@@ -28,27 +30,27 @@ docker run --net=host -it ngrok/ngrok http 80
 docker run -it ngrok/ngrok http host.docker.internal:80
 ```
 
-### Access the web inspector on the host machine at localhost:3000
+#### Access the web inspector on the host machine at localhost:3000
 
 ```bash
 docker run -it -p 3000:4040 ngrok/ngrok http 80
 ```
 
-### Run the ngrok agent with auth token 'xyz'
+#### Run the ngrok agent with auth token 'xyz'
 
 ```bash
 docker run -it -e NGROK_AUTHTOKEN=xyz ngrok/ngrok:alpine http 80
 ```
 
-### Run the ngrok agent with the config file './ngrok.yml' from the host machine
+#### Run the ngrok agent with the config file './ngrok.yml' from the host machine
 
 ```bash
 docker run -it -v $(pwd)/ngrok.yml:/etc/ngrok.yml -e NGROK_CONFIG=/etc/ngrok.yml ngrok/ngrok:alpine http 80
 ```
 
-## Tags
+### Tags
 
-described [here][ngrok-dockerhub]
+Described [here][ngrok-dockerhub]
 
 [ngrok-dockerhub]: https://hub.docker.com/r/ngrok/ngrok
 [ngrok]: https://ngrok.com/
