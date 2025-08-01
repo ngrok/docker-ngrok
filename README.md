@@ -32,7 +32,31 @@ We offer the following image tags. All tags below are multi-architecture and com
 
 ```bash
 # Forward a public endpoint URL to port 80 on your local machine
-docker run -it -e NGROK_AUTHTOKEN=your_token ngrok/ngrok http host.docker.internal:80
+docker run --net=host -it -e NGROK_AUTHTOKEN=xyz ngrok/ngrok:latest http 80
+```
+
+### Windows or macOS
+
+```bash
+docker run -it -e NGROK_AUTHTOKEN=xyz ngrok/ngrok:latest http host.docker.internal:80
+```
+
+For macOS and Windows, you must use the special URL `host.docker.internal` as described in the [Docker networking documentation](https://docs.docker.com/desktop/features/networking/#use-cases-and-workarounds).
+
+This also applies to the `upstream.url` endpoint property in your ngrok config file. For example:
+
+```yml
+endpoints:
+  - name: example
+    url: https://example.ngrok.app
+    upstream:
+      url: http://host.docker.internal:80
+```
+
+If you are unable to view the web inspection interface typically available at `https://localhost:4040`, you may need to map your host port `4040` to port `4040` on the container, for example:
+
+```bash
+docker run -p 4040:4040 -it -e NGROK_AUTHTOKEN=xyz ngrok/ngrok:latest http host.docker.internal:80
 ```
 
 ## Usage
