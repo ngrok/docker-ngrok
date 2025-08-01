@@ -13,6 +13,19 @@ ngrok is an API gateway cloud service that forwards traffic from internet-access
 - [ngrok docs][ngrok-docs]
 - [ngrok Docker Hub repository][ngrok-dockerhub]
 
+## Tags
+
+We offer the following image tags. All tags below are multi-architecture and come in 32- and 64-bit flavors for both ARM and x86.
+
+- `:latest`, :`debian` - The latest Debian-based build of the ngrok agent.
+- `:alpine` - The latest Alpine-based build of the ngrok agent.
+- `:3, :3-debian` - The latest Debian build for version 3 of the ngrok agent. Available for every major version from v3 and up.
+- `:3-alpine` - The latest Alpine build for version 3 of the ngrok agent. Available for every major version from v3 and up.
+- `:<version>-debian` - Debian builds for specific versions of the ngrok agent. Available for every minor version from 2.3.40 and up.
+- `:<version>-alpine` - Alpine builds for specific versions of the ngrok agent. Available for every minor version from 2.3.40 and up.
+- `:<version>-debian-<hash>` - Immutable tags pointing to the Debian build of the ngrok agent for a specific version. Available for every build we release.
+- `:<version>-alpine-<hash>` - Immutable tags pointing to the Alpine build of the ngrok agent for a specific version. Available for every build we release.
+
 ## Quick Start
 
 ### Linux
@@ -40,84 +53,9 @@ endpoints:
       url: http://host.docker.internal:80
 ```
 
-If you are unable to view the web inspection interface typically available at `https://localhost:4040`, you may need to map your host port `4040` to port `4040` on the container, for example:
-
-```bash
-docker run -p 4040:4040 -it -e NGROK_AUTHTOKEN=xyz ngrok/ngrok:latest http host.docker.internal:80
-```
-
 ## Usage
 
-### Basic Usage
-
-The ngrok docker image wraps the ngrok agent executable. Read the documentation for the [ngrok agent CLI docs](https://ngrok.com/docs/agent/cli/) for all commands.
-
-#### Run an ngrok agent pointed at localhost:80
-
-```bash
-docker run -it -e NGROK_AUTHTOKEN=your_token ngrok/ngrok http host.docker.internal:80
-```
-
-### Choose a URL
-
-If you don't choose a URL, ngrok will assign one for you.
-
-```bash
-docker run -it -e NGROK_AUTHTOKEN=your_token ngrok/ngrok http host.docker.internal:80 --url https://your-url-here.ngrok.app
-```
-
-### Add a Traffic Policy
-
-[Traffic Policy](https://ngrok.com/docs/traffic-policy/) is a configuration language that offers you the flexibility to filter, match, manage and orchestrate traffic to your endpoints.
-
-```bash
-docker run -it -v $(pwd)/traffic-policy.yml:/etc/traffic-policy.yml ngrok/ngrok:alpine http host.docker.internal:80 --traffic-policy-file /etc/traffic-policy.yml
-```
-
-##### `traffic-policy.yml`
-
-```yaml
-on_http_request:
-  - actions:
-      - type: basic-auth
-        config:
-          credentials:
-            - user:password123
-```
-
-#### Run in the background
-
-```bash
-docker run -d --restart unless-stopped -e NGROK_AUTHTOKEN=your_token --name ngrok-agent ngrok/ngrok http host.docker.internal:80
-```
-
-### Use a configuration file
-
-Run the ngrok agent with the config file `./ngrok.yml` from the host machine:
-
-```bash
-docker run -it -v $(pwd)/ngrok.yml:/etc/ngrok.yml -e NGROK_CONFIG=/etc/ngrok.yml ngrok/ngrok:alpine http host.docker.internal:80
-```
-
-#### Pull the ngrok container image
-
-```bash
-docker pull ngrok/ngrok
-```
-
-## Traffic Inspection
-
-#### Traffic Inspector
-
-Use [Traffic Inspector](https://dashboard.ngrok.com/ac_aHNlbPD0YUEUrqWbr9xZQJUflCx/traffic-inspector) on your ngrok dashboard
-
-#### Local Web Inspection on localhost:4040 (Legacy)
-
-The agent serves this web interface on port 4040 so you'll need to publish it as well with `-p 4040:4040`
-
-```bash
-docker run -it -p 4040:4040 ngrok/ngrok http host.docker.internal:80
-```
+For usage, see [Using ngrok with Docker](https://ngrok.com/docs/using-ngrok-with/docker/).
 
 ## Configuration
 
