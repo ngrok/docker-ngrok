@@ -17,14 +17,14 @@ ngrok is an API gateway cloud service that forwards traffic from internet-access
 
 We offer the following image tags. All tags below are multi-architecture and come in 32- and 64-bit flavors for both ARM and x86.
 
-- `:latest`, `:debian` - The latest Debian-based build of the ngrok agent.
+- `:latest`, :`debian` - The latest Debian-based build of the ngrok agent.
 - `:alpine` - The latest Alpine-based build of the ngrok agent.
-- `:3`, `:3-debian` - The latest Debian build for version 3 of the ngrok agent. Available for every major version from v3 and up.
+- `:3, :3-debian` - The latest Debian build for version 3 of the ngrok agent. Available for every major version from v3 and up.
 - `:3-alpine` - The latest Alpine build for version 3 of the ngrok agent. Available for every major version from v3 and up.
-- `:3.25.0-debian` - The latest Debian build for version 3.25.0 of the ngrok agent. Available for every minor version from 3.25.0 and up.
-- `:3.25.0-alpine` - The latest Alpine build for version 3.25.0 of the ngrok agent. Available for every minor version from 3.25.0 and up.
-- `:3.25.0-debian-1f45c1f` - An **immutable** tag pointing to a Debian build of agent version 3.25.0 with build hash `1f45c1f`. Available for every build we release.
-- `:3.25.0-alpine-1f45c1f` - An **immutable** tag pointing to an Alpine build of agent version 3.25.0 with build hash `1f45c1f`. Available for every build we release.
+- `:3.25.1-debian` - The latest Debian build for version 3.25.1 of the ngrok agent. Available for every minor version from 2.3.40 and up.
+- `:3.25.1-alpine` - The latest Alpine build for version 3.25.1 of the ngrok agent. Available for every minor version from 2.3.40 and up.
+- `:3.25.1-debian-d2827ad` - An immutable tag pointing to a Debian build of agent version 3.25.1 with build hash d2827ad. Available for every build we release.
+- `:3.25.1-alpine-d2827ad` - An immutable tag pointing to an Alpine build of agent version 3.25.1 with build hash d2827ad. Available for every build we release.
 
 ## Quick Start
 
