@@ -53,12 +53,6 @@ endpoints:
       url: http://host.docker.internal:80
 ```
 
-If you are unable to view the web inspection interface typically available at `https://localhost:4040`, you may need to map your host port `4040` to port `4040` on the container, for example:
-
-```bash
-docker run -p 4040:4040 -it -e NGROK_AUTHTOKEN=xyz ngrok/ngrok:latest http host.docker.internal:80
-```
-
 ## Usage
 
 For usage, see [Using ngrok with Docker](https://ngrok.com/docs/using-ngrok-with/docker/).
