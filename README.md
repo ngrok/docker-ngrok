@@ -21,10 +21,10 @@ We offer the following image tags. All tags below are multi-architecture and com
 - `:alpine` - The latest Alpine-based build of the ngrok agent.
 - `:3, :3-debian` - The latest Debian build for version 3 of the ngrok agent. Available for every major version from v3 and up.
 - `:3-alpine` - The latest Alpine build for version 3 of the ngrok agent. Available for every major version from v3 and up.
-- `:3.25.1-debian` - The latest Debian build for version 3.25.1 of the ngrok agent. Available for every minor version from 2.3.40 and up.
-- `:3.25.1-alpine` - The latest Alpine build for version 3.25.1 of the ngrok agent. Available for every minor version from 2.3.40 and up.
-- `:3.25.1-debian-d2827ad` - An immutable tag pointing to a Debian build of agent version 3.25.1 with build hash d2827ad. Available for every build we release.
-- `:3.25.1-alpine-d2827ad` - An immutable tag pointing to an Alpine build of agent version 3.25.1 with build hash d2827ad. Available for every build we release.
+- `:<version>-debian` - Debian builds for specific versions of the ngrok agent. Available for every minor version from 2.3.40 and up.
+- `:<version>-alpine` - Alpine builds for specific versions of the ngrok agent. Available for every minor version from 2.3.40 and up.
+- `:<version>-debian-d2827ad` - Immutable tags pointing to the Debian build of the ngrok agent for a specific version. Available for every build we release.
+- `:<version>-alpine-d2827ad` - Immutable tags pointing to the Alpine build of the ngrok agent for a specific version. Available for every build we release.
 
 ## Quick Start
 
