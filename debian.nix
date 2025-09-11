@@ -3,19 +3,19 @@
 
 with pkgs;
 let
-  debianBuster = { sha256, imageDigest }:
+  debianStable = { sha256, imageDigest }:
     dockerTools.pullImage {
       inherit arch sha256 imageDigest;
       imageName = "debian";
       os = "linux";
       finalImageName = "debian";
-      finalImageTag = "buster";
+      finalImageTag = "bookworm";
     };
 in dockerTools.buildLayeredImage {
   inherit extraCommands;
   name = "ngrok/ngrok";
   tag = "${version}-debian-${arch}";
-  fromImage = debianBuster {
+  fromImage = debianStable {
     sha256 = imageSha256;
     inherit imageDigest;
   };
