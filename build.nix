@@ -52,7 +52,7 @@ rec {
     ngrokBin = ngrokBinArm64;
     arch = "arm64";
     pkgs = pkgsCross.aarch64-multiplatform;
-    imageSha256 = "0n2i0862bahqdwwxf1gypvlrzrl8cdmph6h76r45awh1lcxn650f";
+    imageSha256 = "1vdhk5hrjmgicrnlzr7dpkv23whncx2ypk5s320l02h6ck5kbvxl";
     imageDigest =
       "sha256:eb9b613b4f63193f4476e62af4cb5bff5e3ba0683c4c7f317b2a2c7e3ec22ee6";
     inherit extraCommands entrypoint shadowSetup version;
@@ -69,7 +69,7 @@ rec {
   debianAmd64 = import ./debian.nix {
     ngrokBin = ngrokBinAmd64;
     arch = "amd64";
-    imageSha256 = "1rqvk4zhxx7xi5gqzwdz5f36s40avan4fbimkfbvg2jq8i0jqnd5";
+    imageSha256 = "0nar4n6kwhqqlkafvpjlxxkw3axhvlbfs6vl4z6sxzv3q9zl0vsf";
     imageDigest =
       "sha256:5625c115ad881f19967a9b66416f8d40710bb307ad607d037f8ad8289260f75f";
     inherit pkgs extraCommands entrypoint shadowSetup version;
@@ -86,7 +86,7 @@ rec {
     ngrokBin = ngrokBinArm;
     arch = "arm";
     pkgs = pkgsCross.armv7l-hf-multiplatform;
-    imageSha256 = "0hxqdcwnkv55l56jgg1iqk9lhgnz43v4kqbycnb3zhjvkkjk6b51";
+    imageSha256 = "1aiqszdbcbx93g64sd5m7c39wr86m8l38s6psyaw6d0jgpmd6r67";
     imageDigest =
       "sha256:32c2874ad59bf7908d2a9f7b25409b17cd2927e852d46ed91acfcca4fb64590f";
     inherit extraCommands entrypoint shadowSetup version;
@@ -104,7 +104,7 @@ rec {
     ngrokBin = ngrokBini386;
     arch = "i386";
     pkgs = pkgsCross.gnu32;
-    imageSha256 = "19fcclfrd6wpdxkxccfg23f7zvaqm4sdd9vyfv9fssi4662809ps";
+    imageSha256 = "0h1x1qjawkr857drkq9llrrjpmkrbkad0xjyvr4xqqnvp3jv76nf";
     imageDigest =
       "sha256:8aa52e36d688dfaf6a949884cecc0aa5bd0bc92a626b11c2feeb8a23fbcf3190";
     inherit extraCommands entrypoint shadowSetup version;
