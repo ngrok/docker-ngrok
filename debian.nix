@@ -1,9 +1,19 @@
-{ pkgs, arch, entrypoint, ngrokBin, shadowSetup, extraCommands, version
-, imageDigest, imageSha256 }:
+{
+  pkgs,
+  arch,
+  entrypoint,
+  ngrokBin,
+  shadowSetup,
+  extraCommands,
+  version,
+  imageDigest,
+  imageSha256,
+}:
 
 with pkgs;
 let
-  debianStable = { sha256, imageDigest }:
+  debianStable =
+    { sha256, imageDigest }:
     dockerTools.pullImage {
       inherit arch sha256 imageDigest;
       imageName = "debian";
@@ -11,7 +21,8 @@ let
       finalImageName = "debian";
       finalImageTag = "bookworm";
     };
-in dockerTools.buildLayeredImage {
+in
+dockerTools.buildLayeredImage {
   inherit extraCommands;
   name = "ngrok/ngrok";
   tag = "${version}-debian-${arch}";
@@ -19,9 +30,16 @@ in dockerTools.buildLayeredImage {
     sha256 = imageSha256;
     inherit imageDigest;
   };
-  contents = [ ngrokBin entrypoint pkgs.cacert ] ++ shadowSetup;
+
+  contents = [
+    ngrokBin
+    entrypoint
+    pkgs.cacert
+  ] ++ shadowSetup;
   config = {
-    ExposedPorts = { "4040" = { }; };
+    ExposedPorts = {
+      "4040" = { };
+    };
     Entrypoint = [ "${entrypoint}/entrypoint.sh" ];
     User = "ngrok";
   };
