@@ -61,9 +61,8 @@ rec {
     ngrokBin = ngrokBinArm64;
     arch = "arm64";
     pkgs = pkgsCross.aarch64-multiplatform;
-    imageSha256 = "13h5sh8fnxyaw7n69h7865ybda6lr7vhagf5fgxwjm8yr1pxf3li";
-    imageDigest =
-      "sha256:53b74ddfc6225e3c8cc84d7985d0f34666e4e8b0b6892a9b2ad1f7516bc21b54";
+    imageSha256 = "1abijbbhnxja3pli3v77kgdafpyhw4jaw3nkna0l6zyfklp2vlsz";
+    imageDigest = "sha256:4562b419adf48c5f3c763995d6014c123b3ce1d2e0ef2613b189779caa787192";
     inherit extraCommands entrypoint shadowSetup version;
   };
   debianAmd64 = import ./debian.nix {
