@@ -90,9 +90,8 @@ rec {
     ngrokBin = ngrokBinArm;
     arch = "arm";
     pkgs = pkgsCross.armv7l-hf-multiplatform;
-    imageSha256 = "1idf4x6dk290wm731yjpf2swyrlajbdd9bg3z7vvsrrzz2gsdgjn";
-    imageDigest =
-      "sha256:8d99168167baa6a6a0d7851b9684625df9c1455116a9601835c2127df2aaa2f5";
+    imageSha256 = "085m2dvynld6lxysiqafgaw5nd65ddwia5mpsvvckk7agi3ahhxh";
+    imageDigest = "sha256:9a00b501930d225081164db0456189ebc25b9c7524989c38f4d77c0a96a9ca9a";
     inherit extraCommands entrypoint shadowSetup version;
   };
   debian386 = import ./debian.nix {
