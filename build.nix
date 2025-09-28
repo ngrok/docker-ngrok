@@ -1,10 +1,18 @@
-{ pkgs, stdenv, pkgsCross, fetchurl, unzip, writeTextDir }:
+{
+  pkgs,
+  stdenv,
+  pkgsCross,
+  fetchurl,
+  unzip,
+  writeTextDir,
+}:
 with stdenv;
 let
   configDir = "/var/lib/ngrok";
   releases = builtins.fromJSON (builtins.readFile ./releases.json);
   version = releases.version;
-  ngrokDrv = { sha256, url }:
+  ngrokDrv =
+    { sha256, url }:
     stdenv.mkDerivation {
       name = "ngrok-${version}";
       version = version;
