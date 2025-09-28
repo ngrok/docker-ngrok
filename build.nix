@@ -106,9 +106,8 @@ rec {
     ngrokBin = ngrokBini386;
     arch = "i386";
     pkgs = pkgsCross.gnu32;
-    imageSha256 = "07lapaqi63rz58fxhp13h673aj3mpsxkl0mhb4hxprkpg58hfgh0";
-    imageDigest =
-      "sha256:52a197664c8ed0b4be6d3b8372f1d21f3204822ba432583644c9ce07f7d6448f";
+    imageSha256 = "1p9sxs65839az9iczx1m3jiz0dbq0zkns6nnf5ahrxj5jhih32rk";
+    imageDigest = "sha256:0a88b42ba69d6b900848f9cb9151587bb82827d0aecfa222e51981fad97b5b9a";
     inherit extraCommands entrypoint shadowSetup version;
   };
 }
