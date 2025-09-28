@@ -68,9 +68,8 @@ rec {
   debianAmd64 = import ./debian.nix {
     ngrokBin = ngrokBinAmd64;
     arch = "amd64";
-    imageSha256 = "0nar4n6kwhqqlkafvpjlxxkw3axhvlbfs6vl4z6sxzv3q9zl0vsf";
-    imageDigest =
-      "sha256:5625c115ad881f19967a9b66416f8d40710bb307ad607d037f8ad8289260f75f";
+    imageSha256 = "1jf3hq38l7ca087whvj1pg82dyqm62fz83mrkq6gfnfr8am0wx2z";
+    imageDigest = "sha256:3f03ff2fca74e47cee05599e36e1f1258d386895a3394b3683df333f404f4e8a";
     inherit pkgs extraCommands entrypoint shadowSetup version;
   };
   alpineAmd64 = import ./alpine.nix {
