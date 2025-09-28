@@ -75,9 +75,8 @@ rec {
   alpineAmd64 = import ./alpine.nix {
     ngrokBin = ngrokBinAmd64;
     arch = "amd64";
-    imageDigest =
-      "sha256:1775bebec23e1f3ce486989bfc9ff3c4e951690df84aa9f926497d82f2ffca9d";
-    imageSha256 = "1jjqqp6vkmmy1i37dk0z3slsdbjahy9shsm7vhhrk07kgx8ia7xs";
+    imageDigest = "sha256:eafc1edb577d2e9b458664a15f23ea1c370214193226069eb22921169fc7e43f";
+    imageSha256 = "0rq7l1r7d6iidcjycc2vlgnhz64rckiabw3i51fgdbcbw0l1wd83";
     inherit pkgs extraCommands entrypoint shadowSetup version;
   };
   debianArm = import ./debian.nix {
