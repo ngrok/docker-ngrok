@@ -98,9 +98,8 @@ rec {
     ngrokBin = ngrokBini386;
     arch = "i386";
     pkgs = pkgsCross.gnu32;
-    imageSha256 = "0h1x1qjawkr857drkq9llrrjpmkrbkad0xjyvr4xqqnvp3jv76nf";
-    imageDigest =
-      "sha256:8aa52e36d688dfaf6a949884cecc0aa5bd0bc92a626b11c2feeb8a23fbcf3190";
+    imageSha256 = "0rgzkk0f73j7czcxddxzzzj163k7ki034hcjw4dgfskq14k2nrfk";
+    imageDigest = "sha256:82c5ce38c8c080971d88ea86d6287f4418cd9e8f29f9066539b65830df54c2ff";
     inherit extraCommands entrypoint shadowSetup version;
   };
   alpine386 = import ./alpine.nix {
