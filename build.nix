@@ -82,9 +82,8 @@ rec {
     ngrokBin = ngrokBinArm;
     arch = "arm";
     pkgs = pkgsCross.armv7l-hf-multiplatform;
-    imageSha256 = "1aiqszdbcbx93g64sd5m7c39wr86m8l38s6psyaw6d0jgpmd6r67";
-    imageDigest =
-      "sha256:32c2874ad59bf7908d2a9f7b25409b17cd2927e852d46ed91acfcca4fb64590f";
+    imageSha256 = "10xgf8nb482qpxv16k9aaa06y5ahh99w5bcxywfv7wnp2as1di0p";
+    imageDigest = "sha256:30c1b3317f599c1843157fb240ddbf4eafbccc70f6dbd7ba29dc1f7452309dd1";
     inherit extraCommands entrypoint shadowSetup version;
   };
   alpineArm = import ./alpine.nix {
