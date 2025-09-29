@@ -35,6 +35,7 @@ dockerTools.buildLayeredImage {
     ngrokBin
     entrypoint
     pkgs.cacert
+    dockerTools.binSh
   ] ++ shadowSetup;
   config = {
     ExposedPorts = {
