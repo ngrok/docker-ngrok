@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 CONFIGDIR="/var/lib/ngrok"
 CONFIGARGS=""
 
