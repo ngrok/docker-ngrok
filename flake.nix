@@ -1,29 +1,20 @@
 {
-  description = "The ngrok docker container";
+  description = "Description for the project";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      flake-utils,
-      ...
-    }:
-    let
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-      };
-    in
-    {
-      packages.x86_64-linux = pkgs.callPackage ./build.nix { };
-      devShells.x86_64-linux.default = pkgs.mkShell { };
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+      imports = [ ./packages.nix ./shell.nix ];
     };
 }
