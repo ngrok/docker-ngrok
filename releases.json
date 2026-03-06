@@ -1,19 +1,19 @@
 {
   "amd64": {
-    "url": "https://bin.ngrok.com/a/dwA8ZA5rcjH/ngrok-v3-3.36.1-linux-amd64.zip",
-    "sha256": "b4a1f7531b58ec368e78732d7bed421ccb9583e293a4003d060c4f4d61d4af16"
+    "url": "https://bin.ngrok.com/a/m9DXjDkXsWf/ngrok-v3-3.37.1-linux-amd64.zip",
+    "sha256": "7b3a5f6003243091df52f09a610c8a6a969a7ad0379b644784a416e7dac0ddd8"
   },
   "arm": {
-    "url": "https://bin.ngrok.com/a/kdnDaaA7xYn/ngrok-v3-3.36.1-linux-arm.zip",
-    "sha256": "afe169dcac381db08790b9185c24fecaf70c3fdb94b0d616cea901755c84ad5d"
+    "url": "https://bin.ngrok.com/a/4PX1WHPgBKB/ngrok-v3-3.37.1-linux-arm.zip",
+    "sha256": "a46c6acda01c454417320f69a931c9861fb72ad18654383c78866ea9603044b2"
   },
   "arm64": {
-    "url": "https://bin.ngrok.com/a/4eUskiBMftW/ngrok-v3-3.36.1-linux-arm64.zip",
-    "sha256": "1fb0986c59a0051bb69acae488d76b1be501ff13087a9a8e750c74b8ac488f83"
+    "url": "https://bin.ngrok.com/a/djAQ2KJG3LU/ngrok-v3-3.37.1-linux-arm64.zip",
+    "sha256": "6cc5f6ab64c3925642f45d82104491ce4275cdf126911dc0e32563563761e1af"
   },
   "i386": {
-    "url": "https://bin.ngrok.com/a/j4sfEXnNavg/ngrok-v3-3.36.1-linux-386.zip",
-    "sha256": "e1c88165667e4675ca70d41b3aa479e85edaa0f77487e6f85718fb68fb724066"
+    "url": "https://bin.ngrok.com/a/kayNxUGH3z1/ngrok-v3-3.37.1-linux-386.zip",
+    "sha256": "a8bffe3f6c24df57594fc1935d5c196e10e85c7d665a48f9acdb8fe664d07667"
   },
-  "version": "3.36.1"
+  "version": "3.37.1"
 }
