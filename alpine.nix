@@ -9,7 +9,7 @@ let
       imageName = "alpine";
       os = "linux";
       finalImageName = "alpine";
-      finalImageTag = "3.14.0";
+      finalImageTag = "3.23";
     };
 in dockerTools.buildLayeredImage {
   inherit extraCommands;
