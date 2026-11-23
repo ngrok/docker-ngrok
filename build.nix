@@ -60,62 +60,62 @@ rec {
     ngrokBin = ngrokBinArm64;
     arch = "arm64";
     pkgs = pkgsCross.aarch64-multiplatform;
-    imageSha256 = "0q569s2dbgqzckvdpmf6qppqxqdis6l2g7qz14vhxq29hqzbw1hd";
-    imageDigest = "sha256:53692cdc49e2b0abdd9adf36466b366aaebdbbdbb2e6a7f432e2b4fb7327fd93";
+    imageSha256 = "sha256-Jlun6tavsH3VC+GcKhXpj90B7widvB3KAprFe0HR3hg=";
+    imageDigest = "sha256:b8dee49b29a16c89f0781356ccb07cbf6c5195dace2e6e1b6a42f4c9af1e55fa";
     inherit extraCommands entrypoint shadowSetup version;
   };
   alpineArm64 = import ./alpine.nix {
     ngrokBin = ngrokBinArm64;
     arch = "arm64";
     pkgs = pkgsCross.aarch64-multiplatform;
-    imageSha256 = "sha256-+Uk4ueQVlh4CXtClJgmcfGSeGAGMkEv8rKgXdCIz/HM=";
-    imageDigest = "sha256:378c4c5418f7493bd500ad21ffb43818d0689daaad43e3261859fb417d1481a0";
+    imageSha256 = "sha256-YK+b0j8kWYEa6AyFWI833TbqddFxWiPCF499dNdnOI8=";
+    imageDigest = "sha256:5dda816445facf5f7282dc7689a333278834c74265ba25db2e2eb90509e3a9dd";
     inherit extraCommands entrypoint shadowSetup version;
   };
   debianAmd64 = import ./debian.nix {
     ngrokBin = ngrokBinAmd64;
     arch = "amd64";
-    imageSha256 = "1jf3hq38l7ca087whvj1pg82dyqm62fz83mrkq6gfnfr8am0wx2z";
-    imageDigest = "sha256:3f03ff2fca74e47cee05599e36e1f1258d386895a3394b3683df333f404f4e8a";
+    imageSha256 = "sha256-W9e/m+v8CFpttJa9tNXmqwRVAPxDertSh2AInPOFsPg=";
+    imageDigest = "sha256:366a6da5efcceffbaa19c560a101b97b87a1a9664eeeac8bc3d24395ddbf14f3";
     inherit pkgs extraCommands entrypoint shadowSetup version;
   };
   alpineAmd64 = import ./alpine.nix {
     ngrokBin = ngrokBinAmd64;
     arch = "amd64";
-    imageDigest = "sha256:4d889c14e7d5a73929ab00be2ef8ff22437e7cbc545931e52554a7b00e123d8b";
-    imageSha256 = "sha256-/vu9AOd/0neZw5qECn3s0Ybi6NMdYDX49yaGELQjny0=";
+    imageDigest = "sha256:644c1ad8fc45cc581ab1b5ea7ec1bebc9b037fd4801ad697ca124deb3f9c9332";
+    imageSha256 = "sha256-DT8KqBF8gCUehPICE1HhKceHbSZIM69p5FvuJn5YiGk=";
     inherit pkgs extraCommands entrypoint shadowSetup version;
   };
   debianArm = import ./debian.nix {
     ngrokBin = ngrokBinArm;
     arch = "arm";
     pkgs = pkgsCross.armv7l-hf-multiplatform;
-    imageSha256 = "10xgf8nb482qpxv16k9aaa06y5ahh99w5bcxywfv7wnp2as1di0p";
-    imageDigest = "sha256:30c1b3317f599c1843157fb240ddbf4eafbccc70f6dbd7ba29dc1f7452309dd1";
+    imageSha256 = "sha256-XVBKy5hSSyHs1VUa6YFm6iSnYlkYIxyObElGW8QQAWg=";
+    imageDigest = "sha256:c32b4b14fef059f242fe317da56fd06ccbe2f9c6e72110cb1c38b9c716ceeb31";
     inherit extraCommands entrypoint shadowSetup version;
   };
   alpineArm = import ./alpine.nix {
     ngrokBin = ngrokBinArm;
     arch = "arm";
     pkgs = pkgsCross.armv7l-hf-multiplatform;
-    imageSha256 = "sha256-Gygl1eozOmQ/o4eNn2AYGjnbwx/jSw2baPshTwZloXM=";
-    imageDigest = "sha256:0be3c29c7b8d475f38f71ac3d25eb5eb673c68cc673576996cb2afd7a536829a";
+    imageSha256 = "sha256-+oLAg/MJHYMJYBsn1v8xh0tPX+CJVshuFRwqX7+mWxs=";
+    imageDigest = "sha256:a69938a920926e3ddb659f68a1432d1bcda694b411e4352b1e7a16aff20f5f05";
     inherit extraCommands entrypoint shadowSetup version;
   };
   debian386 = import ./debian.nix {
     ngrokBin = ngrokBini386;
     arch = "i386";
     pkgs = pkgsCross.gnu32;
-    imageSha256 = "0rgzkk0f73j7czcxddxzzzj163k7ki034hcjw4dgfskq14k2nrfk";
-    imageDigest = "sha256:82c5ce38c8c080971d88ea86d6287f4418cd9e8f29f9066539b65830df54c2ff";
+    imageSha256 = "sha256-TLKN4FDy78yOucltXTeKRBooj6IUxbP/bNRy1XYZ5lE=";
+    imageDigest = "sha256:1deba4ebcaba43863facc728ad3cc49a62626f7545940b4ae93104f14e2f81f9";
     inherit extraCommands entrypoint shadowSetup version;
   };
   alpine386 = import ./alpine.nix {
     ngrokBin = ngrokBini386;
     arch = "i386";
     pkgs = pkgsCross.gnu32;
-    imageSha256 = "sha256-wJf5sDrtu+SBslgFGU6alg6bmJ+v5gt3dBabnnllJXM=";
-    imageDigest = "sha256:9b9ebaba5ccb78ee301bec0b365d4d014973b05bd77a7bf59cb18f8b160a09c4";
+    imageSha256 = "sha256-lXM08g4vwMeUliMHMH4QjBZunlZQlKQyG0d8RQa0WcE=";
+    imageDigest = "sha256:e1811e759db73e07a7df4e7c667fe39a90166e5a4c66a3c22eb40bbb1031194a";
     inherit extraCommands entrypoint shadowSetup version;
   };
 }
